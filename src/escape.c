@@ -376,7 +376,7 @@ void game_loop() {
 		render_projectiles(curr_screen, &model.room_array[curr_room]);
 	
 		oldSSP = Super(0);
-		set_video_base((UINT16*)curr_screen);
+		set_video_base((UINT16*)screen1);
 		Super(oldSSP); 
 			
 		RENDER_REQUEST = false;
