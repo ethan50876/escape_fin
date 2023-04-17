@@ -1,0 +1,98 @@
+Escape: bin\raster.o bin\bitmaps.o bin\render.o bin\model.o bin\event.o bin\escape.o bin\start.o bin\proj1.o bin\hallway.o bin\cross.o bin\trap1a.o bin\trap1b.o bin\trap1c.o bin\rightkey.o bin\proj2.o bin\leftkey.o bin\trap2.o bin\end.o bin\start_sc.o bin\cont_sc.o bin\fail_sc.o bin\ikbd.o bin\isr.o bin\vbl.o bin\video.o  bin\menu.o bin\music.o bin\psg.o bin\effects.o
+	cc68x -g  bin\raster.o bin\bitmaps.o bin\render.o bin\model.o bin\event.o bin\escape.o bin\start.o bin\proj1.o bin\hallway.o bin\cross.o bin\trap1a.o bin\trap1b.o bin\trap1c.o bin\rightkey.o bin\proj2.o bin\leftkey.o bin\trap2.o bin\end.o bin\start_sc.o bin\cont_sc.o bin\fail_sc.o bin\ikbd.o bin\isr.o bin\vbl.o bin\video.o bin\menu.o bin\music.o bin\psg.o bin\effects.o -o Escape
+
+	
+bin\raster.o: src\raster.c src\headers\raster.h
+	cc68x -g -c src\raster.c -o bin\raster.o
+
+bin\bitmaps.o:	src\bitmaps\bitmaps.c src\headers\bitmaps.h
+	cc68x -g -c src\bitmaps\bitmaps.c -o bin\bitmaps.o
+
+bin\render.o: src\render.c src\headers\render.h
+	cc68x -g -c src\render.c -o bin\render.o
+	
+bin\event.o: src\event.c src\headers\event.h
+	cc68x -g -c src\event.c -o bin\event.o
+
+bin\escape.o: src\escape.c src\headers\escape.h 
+	cc68x -g -c src\escape.c -o bin\escape.o
+	
+bin\model.o: src\model.c src\headers\model.h
+	cc68x -g -c src\model.c -o bin\model.o
+	
+bin\start.o: src\bitmaps\start.c src\headers\rooms.h
+	cc68x -g -c src\bitmaps\start.c -o bin\start.o
+	
+bin\proj1.o: src\bitmaps\proj1.c src\headers\rooms.h
+	cc68x -g -c src\bitmaps\proj1.c -o bin\proj1.o
+
+bin\hallway.o: src\bitmaps\hallway.c src\headers\rooms.h
+	cc68x -g -c src\bitmaps\hallway.c -o bin\hallway.o
+
+bin\cross.o: src\bitmaps\cross.c src\headers\rooms.h
+	cc68x -g -c src\bitmaps\cross.c -o bin\cross.o
+	
+bin\trap1a.o: src\bitmaps\trap1a.c src\headers\rooms.h
+	cc68x -g -c src\bitmaps\trap1a.c -o bin\trap1a.o
+
+bin\trap1b.o: src\bitmaps\trap1b.c src\headers\rooms.h
+	cc68x -g -c src\bitmaps\trap1b.c -o bin\trap1b.o
+	
+bin\trap1c.o: src\bitmaps\trap1c.c src\headers\rooms.h
+	cc68x -g -c src\bitmaps\trap1c.c -o bin\trap1c.o
+	
+bin\rightkey.o: src\bitmaps\rightkey.c src\headers\rooms.h
+	cc68x -g -c src\bitmaps\rightkey.c -o bin\rightkey.o
+	
+bin\proj2.o: src\bitmaps\proj2.c src\headers\rooms.h
+	cc68x -g -c src\bitmaps\proj2.c -o bin\proj2.o
+	
+bin\leftkey.o: src\bitmaps\leftkey.c src\headers\rooms.h
+	cc68x -g -c src\bitmaps\leftkey.c -o bin\leftkey.o
+	
+bin\trap2.o: src\bitmaps\trap2.c src\headers\rooms.h
+	cc68x -g -c src\bitmaps\trap2.c -o bin\trap2.o
+	
+bin\end.o: src\bitmaps\end.c src\headers\rooms.h
+	cc68x -g -c src\bitmaps\end.c -o bin\end.o
+
+bin\ikbd.o: src\asm\ikbd.s src\headers\asm.h
+	gen -D -L2 src\asm\ikbd.s -obin\ikbd.o
+
+bin\isr.o: src\isr.c src\headers\isr.h
+	cc68x -g -c src\isr.c -o bin\isr.o	
+	
+bin\vbl.o: src\asm\vbl.s src\headers\asm.h
+	gen -D -L2 src\asm\vbl.s -obin\vbl.o
+	
+bin\video.o: src\asm\video.s src\headers\asm.h
+	gen -D -L2 src\asm\video.s -obin\video.o	
+
+bin\start_sc.o: src\bitmaps\start_sc.c src\headers\start_sc.h
+	cc68x -g -c src\bitmaps\start_sc.c -o bin\start_sc.o
+
+bin\cont_sc.o: src\bitmaps\cont_sc.c src\headers\cont_sc.h
+	cc68x -g -c src\bitmaps\cont_sc.c -o bin\cont_sc.o
+
+bin\fail_sc.o: src\bitmaps\fail_sc.c src\headers\fail_sc.h
+	cc68x -g -c src\bitmaps\fail_sc.c -o bin\fail_sc.o
+	
+bin\win_sc.o: src\bitmaps\win_sc.c src\headers\win_sc.h
+	cc68x -g -c src\bitmaps\win_sc.c -o bin\win_sc.o
+	
+bin\menu.o: src\menu.c src\headers\menu.h
+	cc68x -g -c src\menu.c -o bin\menu.o
+
+bin\music.o: src\music.c src\headers\music.h
+	cc68x -g -c src\music.c -o bin\music.o
+
+bin\psg.o: src\psg.c src\headers\psg.h
+	cc68x -g -c src\psg.c -o bin\psg.o
+
+bin\effects.o: src\effects.c src\headers\effects.h
+	cc68x -g -c src\effects.c -o bin\effects.o
+		
+		
+clean:
+	!Rm bin\*.o
+	!Rm escape
